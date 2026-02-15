@@ -13,9 +13,9 @@
 
 | 단계 | 파일 | 설명 |
 |------|------|------|
-| 데이터 파싱 실험 | `processing_and_upsert.py` | pdfplumber 표추출 → EasyOCR → Clova OCR → pdfplumber bbox 전환 과정 |
-| 조례 PDF 파싱·적재 | `insert_db_funeral_ordinance.py` | 최종 pdfplumber bbox 로직으로 조례 데이터 추출 및 Pinecone 적재 |
-| 시설 데이터 전처리·적재 | `insert_db_funeral_facilities.py` | 구조적 데이터를 자연어로 변환 후 Pinecone 적재 |
+| 데이터 파싱 실험 | `processing_and_upsert.ipynb` | pdfplumber 표추출 → EasyOCR → Clova OCR → pdfplumber bbox 전환 과정 |
+| 조례 PDF 파싱·적재 | `insert_db_funeral_ordinance.ipynb` | 최종 pdfplumber bbox 로직으로 조례 데이터 추출 및 Pinecone 적재 |
+| 시설 데이터 전처리·적재 | `insert_db_funeral_facilities.ipynb` | 구조적 데이터를 자연어로 변환 후 Pinecone 적재 |
 | 검색 로직 | `search_info.py` | 지역 매칭, 멀티 지역 검색, 메타데이터 필터 분기 |
 | 에이전트 프롬프트 설계 | `info_agent.py` | 도구 사용 규칙, 지역 처리 분기, 출력 포맷 가이드라인 |
 
