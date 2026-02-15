@@ -181,11 +181,11 @@ buddhist_keywords = ['불교', '조계종', '태고종', '연화', '극락', ...
 ```
 [원본 데이터]
      │
-     ├── 조례 PDF ──→ pdfplumber bbox 파싱 ──→ complex_texts 수동 보완 ──→ Pinecone (ordinance)
-     │                (insert_db_funeral_ordinance.py)
+     ├── 조례 PDF ──→ pdfplumber bbox 파싱 ──→ Pinecone (ordinance)
+     │                (insert_db_funeral_ordinance.ipynb)
      │
      └── 시설 CSV ──→ generate_text_logic() 자연어 변환 ──→ Pinecone (funeral_facilities)
-                      (insert_db_funeral_facilities.py)
+                      (insert_db_funeral_facilities.ipynb)
 ```
 
 ---
