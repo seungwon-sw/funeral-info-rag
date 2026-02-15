@@ -1,5 +1,8 @@
 # LifeClover — 장례·사후 정보 제공 RAG 챗봇
 
+> 전체 프로젝트 레포지토리: [LifeClover](https://github.com/SKN19-3rd-4th-Project/Lifeclover-merged)
+> 본 문서는 프로젝트 전체가 아닌, **정보 챗봇 RAG 파이프라인**에 대한 본인 기여 부분을 정리한 것입니다.
+
 ## 프로젝트 개요
 
 **LifeClover**는 장례 절차, 시설 정보, 지자체 지원금, 유산 상속, 디지털 유산 등 사후 행정 정보를 자연어로 질의하면 정확한 답변을 제공하는 RAG(Retrieval-Augmented Generation) 기반 챗봇입니다.
