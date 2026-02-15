@@ -43,7 +43,7 @@
 
 초기에는 텍스트를 직접 드래그하여 수작업으로 추출했으나, 전국 단위로 데이터가 확대되면서 자동화가 필요해졌습니다.
 
-### 시행착오 과정 (`processing_and_upsert.py`)
+### 시행착오 과정 (`processing_and_upsert.ipynb`)
 **1차: Pdfplumber의 표 추출 시도**  
 Pdfplumber의 extract_tables() 등을 먼저 시도했으나, PDF에 표 구분 선이 없어 적용을 할 수 없었습니다. 이후 OCR을 시도하는 방향으로 전환하였습니다. 
 
@@ -56,7 +56,7 @@ PDF를 이미지로 변환한 후 EasyOCR로 텍스트를 인식하고, 바운�
 **4차 (최종): pdfplumber bbox 기반 접근**  
 OCR 자체를 우회하는 방향으로 전환했습니다. pdfplumber의 `extract_words()`가 반환하는 좌표 정보(x1, x2, y1, y2)를 직접 활용하여, PDF 내부에 이미 존재하는 텍스트 위치 데이터로 컬럼을 구분하는 로직을 구현했습니다.
 
-### 최종 파싱 로직의 핵심 설계 (`insert_db_funeral_ordinance.py`)
+### 최종 파싱 로직의 핵심 설계 (`insert_db_funeral_ordinance.ipynb`)
 
 좌표 기반으로 텍스트를 분류하는 규칙을 설계했습니다:
 
