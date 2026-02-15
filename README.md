@@ -195,10 +195,10 @@ buddhist_keywords = ['불교', '조계종', '태고종', '연화', '극락', ...
 ```
 Lifeclover/
 ├── chatbot/
-│   ├── ...                         # 대화 흐름 제어 (타 팀원)
+│   ├── ...                                   # 대화 흐름 제어 (타 팀원)
 │   └── chatbot_modules/
-│       ├── info_agent.py           # 정보 에이전트 (본인 담당)
-│       ├── search_info.py          # 검색 로직 (본인 담당)
+│       ├── info_agent.py                     # 정보 에이전트 (본인 담당)
+│       ├── search_info.py                    # 검색 로직 (본인 담당)
 │       └── ...
 │
 ├── scripts/
@@ -207,18 +207,18 @@ Lifeclover/
 │   └── processing_and_upsert.ipynb           # 파싱 실험 과정 (본인 담당)
 │
 ├── data/
-│   ├── raw/                        # 원본 PDF·CSV
-│   ├── processed/                  # 전처리 결과물
+│   ├── raw/                                  # 원본 PDF·CSV
+│   ├── processed/                            # 전처리 결과물
 │   │   ├── facilities_region_list.json
 │   │   └── ordinance_region_list.json
 │   └── ...
 │
-├── config/                        # Django 프로젝트 설정 (타 팀원)
-├── nginx/                         # Nginx 설정 파일 (타 팀원)
-├── sql/                           # DB 초기 설정 스크립트(타 팀원)
-├── static/                        # 정적 리소스 (타 팀원)
-├── templates/                     # Django HTML 템플릿 (타 팀원)
-└── web/                           # Django 앱 (타 팀원)
+├── config/                                   # Django 프로젝트 설정 (타 팀원)
+├── nginx/                                    # Nginx 설정 파일 (타 팀원)
+├── sql/                                      # DB 초기 설정 스크립트(타 팀원)
+├── static/                                   # 정적 리소스 (타 팀원)
+├── templates/                                # Django HTML 템플릿 (타 팀원)
+└── web/                                      # Django 앱 (타 팀원)
 
 ```
 
