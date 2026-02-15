@@ -26,7 +26,7 @@
 |---------------------|-----------|
 | **Language**        | [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white)](https://www.python.org/) |
 | **Collaboration Tool** | [![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/) [![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)](https://www.notion.so/) [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/) |
-| **LLM Model**       | [![GPT-4o](https://img.shields.io/badge/GPT--4o%20-412991?style=for-the-badge&logo=openai&logoColor=white)](https://platform.openai.com/) 
+| **LLM Model**       | [![GPT-4o](https://img.shields.io/badge/GPT--4o%20-412991?style=for-the-badge&logo=openai&logoColor=white)](https://platform.openai.com/) |
 | **Embedding Model** | [![text-embedding-3-small](https://img.shields.io/badge/text--embedding--3--small-00A67D?style=for-the-badge&logo=openai&logoColor=white)](https://platform.openai.com/docs/guides/embeddings) |
 | **Vector DB**       | [![Pinecone](https://img.shields.io/badge/Pinecone-0075A8?style=for-the-badge&logo=pinecone&logoColor=white)](https://www.pinecone.io/) |
 | **Orchestration / RAG** | [![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)](https://www.langchain.com/) [![LangGraph](https://img.shields.io/badge/LangGraph-000000?style=for-the-badge)](https://langchain-ai.github.io/langgraph/) |
@@ -97,7 +97,7 @@ OCR 자체를 우회하는 방향으로 전환했습니다. pdfplumber의 `extra
 ```
 
 **기타 시설 로직 — 원본에 없는 맥락 생성:**  
-봉안당, 묘지 등의 원본 데이터에는 종교 구분 컬럼이 없었습니다. 이를 해결하기 위해:
+봉안당, 묘지 등의 원본 데이터에는 종교 구분이나 공설/사설 구분 컬럼이 없었습니다(장례식장은 공사설 컬럼이 존재하여 그대로 활용). 이를 해결하기 위해:
 
 1. 시설명에서 LLM을 활용하여 종교 관련 키워드 후보를 추출
 2. 추출된 키워드를 수작업으로 검수하여, 확신할 수 있는 것만 키워드 리스트로 확정
@@ -226,9 +226,10 @@ Lifeclover/
 
 ## 회고
 
-- **데이터 품질에 대한 기준**: RAG 시스템에서 검색 정확도는 결국 입력 데이터 품질에 의존합니다. 조례 파싱에서 "LLM이 어느 정도 이해할 수 있으면 된다"는 기준 대신, 구조가 정확하게 복원되는 수준을 목표로 설정하고 여러 방법을 탐구한 과정이 기술적으로 가장 성장한 부분이었습니다.
-- **설계 판단의 근거**: VectorDB에 정형 데이터를 넣는 결정, 자연어 맥락 생성, 멀티 지역 검색 설계 등 각 결정에 "왜"라는 근거를 두려고 했습니다.
-- **프롬프트 엔지니어링의 중요성**: 도구의 docstring만으로는 LLM이 의도대로 동작하지 않는 경우가 많았고, 시스템 프롬프트에 명시적 규칙을 추가하는 것이 실질적인 성능 개선으로 이어졌습니다.
+조례 파싱 작업에서 가장 오래 붙잡았던 건 데이터 추출 품질이었습니다. "LLM이 어느 정도 이해할 수 있으면 되지 않나?"라는 생각도 했지만, 뒤죽박죽된 데이터를 보면서 스스로 납득할 수 없어서 EasyOCR, Clova OCR, pdfplumber bbox까지 파고들었습니다. 
 
-전체 프로젝트 작성 회고
-- openai api를 활용함에 있어 생각 없이 임베딩도 openai의 임베딩 모델을 활용했는데 요청이 많아 시간이 지연되는 문제도 있었다. 프로젝트를 함에 있어 다양한 문제 상황이 생길 수 있고 계획하는 단계에서 검토를 충분히 해야겠다는 것을 느꼈다. 그리고 문제를 해결함에 있어 라이브러리의 도큐먼트를 꼼꼼히 확인하는 것의 중요성을 알 수 있었다.
+VectorDB에 정형 데이터를 넣는 결정, 자연어 맥락 생성, 멀티 지역 검색 설계 등 각 단계에서 "왜 이 방법인가"라는 근거를 세우려고 했습니다.
+
+도구의 docstring만으로는 LLM이 의도대로 동작하지 않는 경우가 많았고, 시스템 프롬프트에 명시적 규칙을 추가하는 것이 실질적인 품질 개선으로 이어졌습니다.
+
+또 하나 느낀 점은, OpenAI 임베딩 모델을 별 고민 없이 선택했다가 요청량이 많아지면서 시간 지연 문제가 생겼던 경험입니다. 설계 단계에서 병목이 될 수 있는 부분을 미리 검토하는 것, 그리고 문제가 생겼을 때 라이브러리 문서를 꼼꼼히 확인하는 습관의 중요성을 배웠습니다.
