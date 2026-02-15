@@ -3,9 +3,11 @@
 > 전체 프로젝트 레포지토리: [LifeClover](https://github.com/SKN19-3rd-4th-Project/Lifeclover-merged)<br>
 > 본 문서는 프로젝트 전체가 아닌, **정보 챗봇 RAG 파이프라인**에 대한 본인 기여 부분을 정리한 것입니다.
 
+
 ## 프로젝트 개요
 
 **LifeClover**는 장례 절차, 시설 정보, 지자체 지원금, 유산 상속, 디지털 유산 등 사후 행정 정보를 자연어로 질의하면 정확한 답변을 제공하는 RAG(Retrieval-Augmented Generation) 기반 챗봇입니다.
+
 
 ### 담당 범위
 
@@ -16,6 +18,7 @@
 | 시설 데이터 전처리·적재 | `insert_db_funeral_facilities.py` | 구조적 데이터를 자연어로 변환 후 Pinecone 적재 |
 | 검색 로직 | `search_info.py` | 지역 매칭, 멀티 지역 검색, 메타데이터 필터 분기 |
 | 에이전트 프롬프트 설계 | `info_agent.py` | 도구 사용 규칙, 지역 처리 분기, 출력 포맷 가이드라인 |
+
 
 ### 기술 스택
 
@@ -28,7 +31,6 @@
 | **Vector DB**       | [![Pinecone](https://img.shields.io/badge/Pinecone-0075A8?style=for-the-badge&logo=pinecone&logoColor=white)](https://www.pinecone.io/) |
 | **Orchestration / RAG** | [![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)](https://www.langchain.com/) [![LangGraph](https://img.shields.io/badge/LangGraph-000000?style=for-the-badge)](https://langchain-ai.github.io/langgraph/) |
 | **Development Env** | [![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com/) [![Conda](https://img.shields.io/badge/Conda-3EB049?style=for-the-badge&logo=anaconda&logoColor=white)](https://www.anaconda.com/)
-
 <br>
 
 ---
